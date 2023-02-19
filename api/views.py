@@ -26,7 +26,7 @@ def status(request, *args, **kwargs):
 def request_code(request:Request):
   email=request.data["email"]
   ts=redis_client.publishRequest(email)
-  return JsonResponse({"status": "ok",
+  return JsonResponse({"status": ts is not None,
                          "timestamp": ts
                          })
 
@@ -39,4 +39,6 @@ def check_code(request:Request):
   email=request.data["email"]
   code=request.data["code"]
   res=redis_client.checkCode(email,code)
-  return JsonResponse({"status": res,})
+  return JsonResponse({"status": res=="OK",
+  "message":res  
+  })

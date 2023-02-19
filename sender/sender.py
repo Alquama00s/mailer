@@ -30,11 +30,10 @@ class sender:
       # print(f"{threading.current_thread().ident} trying to fetch request")
       request=self.redis.getRequest()
       # print(f"got req {request}")
-      arr=request.split(":");
-      ts=float(arr[1])
+      ts=self.redis.removeTimeStamp(request)
       if(time()-ts<=300):
         self.discard_count=0
-        t=threading.Thread(target=self.sendCode,args=(arr[0],))
+        t=threading.Thread(target=self.sendCode,args=(request,))
         self.current_concurrency+=1  
         t.start()
       else:
