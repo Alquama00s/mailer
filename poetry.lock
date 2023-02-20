@@ -79,6 +79,20 @@ django = ">=3.0"
 pytz = "*"
 
 [[package]]
+name = "gunicorn"
+version = "20.1.0"
+description = "WSGI HTTP Server for UNIX"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.extras]
+eventlet = ["eventlet (>=0.24.1)"]
+gevent = ["gevent (>=1.4.0)"]
+setproctitle = ["setproctitle"]
+tornado = ["tornado (>=0.2)"]
+
+[[package]]
 name = "more-itertools"
 version = "9.0.0"
 description = "More routines for operating on iterables, beyond itertools"
@@ -201,7 +215,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "f923ff207d6dfb37f356727c749d918ec846cdcdb5af80f03358c0c27dd8d827"
+content-hash = "88f935d533d5108b1973d7647dd46fd62cfa8beb7255c646383e8b8606d5cd27"
 
 [metadata.files]
 asgiref = []
@@ -211,6 +225,7 @@ attrs = []
 colorama = []
 django = []
 djangorestframework = []
+gunicorn = []
 more-itertools = []
 packaging = []
 pluggy = []

@@ -11,6 +11,7 @@ redis = "^4.5.1"
 djangorestframework = "^3.14.0"
 validate-email-address = "^1"
 py3dns = "^3.2.1"
+gunicorn = "^20.1.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

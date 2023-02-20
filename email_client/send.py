@@ -14,39 +14,24 @@ import smtplib
 import sys
 import os
 import re
+from constants.variables import MAIL_ID,MAIL_PASSWORD,SMTP_HOST,SMTP_PORT,APPNAME
 # import dotenv
 
 def send_mail(client:str,to:str,otp:str):
   try:
-
-    env_path = os.path.join(Path.cwd(), "custom", "config.env")
-    # dotenv.load_dotenv(dotenv_path=env_path)
-
-    # OrgMail = os.getenv("mailID")
-    # OrgPass = os.getenv("password")
-    OrgMail = ""
-    OrgPass = ""
-
-    # port = os.getenv("mailPort")
-    port = "587"
-    FROM_MAIL = OrgMail
+    FROM_MAIL = MAIL_ID
     TO_MAIL = to
     OTP=otp
-    COMPANY_NAME = ""
-    # try:
-    #     COMPANY_NAME = sys.argv[4]
-    # except IndexError:
-    #     print("No company name present")
-    #     COMPANY_NAME = ""
+    COMPANY_NAME = APPNAME
 
     # Create the HTML file
     HTML = ""
     STYLESHEET = ""
 
-    with open(os.path.join(Path.cwd(), "custom", "style.css"), "r", encoding="utf-8") as template:
+    with open(os.path.join(Path.cwd(), "email_client/custom", "style.css"), "r", encoding="utf-8") as template:
         STYLESHEET = template.readlines()
 
-    with open(os.path.join(Path.cwd(), "custom", "index.html"), "r", encoding="utf-8") as template:
+    with open(os.path.join(Path.cwd(), "email_client/custom", "index.html"), "r", encoding="utf-8") as template:
         for LINE in template:
             REGEX = r"({.*})"
 
@@ -73,26 +58,19 @@ def send_mail(client:str,to:str,otp:str):
                         splitLINE[splitLINE.index(element)] = OTP
                 LINE = " ".join(splitLINE)
 
-            # Creating the HTML
-            # if ("</body>" in LINE) :
-            #     # Adding the footer for the package
-            #     HTML += '<br/><a href="https://pub.dev/packages/email_auth" target="_blank" rel="noopener noreferrer">Sent using email_auth</a>'
             HTML = HTML + LINE if(HTML != "") else LINE
 
-    # with open("template.HTML", "w") as template:
-    #     template.writeLINEs(HTML)
 
     message = MIMEMultipart('alternative')
     message['Subject'] = f"Login OTP for {COMPANY_NAME} is {OTP}"
     converted = MIMEText(HTML, 'HTML')
     message.attach(converted)
 
-    # server = smtplib.SMTP('smtp.gmail.com', port)
-    server = smtplib.SMTP('smtp.office365.com', port)
+    server = smtplib.SMTP(SMTP_HOST, SMTP_PORT)
 
     server.starttls()
     try:
-        server.login(OrgMail, OrgPass)
+        server.login(MAIL_ID, MAIL_PASSWORD)
         server.sendmail(FROM_MAIL, [TO_MAIL], message.as_string())
         server.quit()
         print("PYTHON SERVER :: success sent mail")

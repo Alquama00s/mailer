@@ -4,10 +4,11 @@ from time import time
 from threading import Event,current_thread,active_count
 import random
 import string
+from constants.variables import REDIS_SERVER,REDIS_PORT,OTP_TIMEOUT,WA_COUNT
 class Redis:
     __list_not_empty_event=Event()
-    __client = redis.Redis(host='localhost', port=6379, db=0)
-    __code_expiration=timedelta(minutes=1)
+    __client = redis.Redis(host=REDIS_SERVER, port=REDIS_PORT, db=0)
+    __code_expiration=timedelta(seconds=OTP_TIMEOUT)
     
     def requestQueueLength(self)->int:
       return self.__client.llen("requests")
@@ -29,7 +30,7 @@ class Redis:
 
     def __registerWrongAttempt(self,email:str):
       wa=self.__client.incr(f"{email}:wa")
-      if(wa>=3):
+      if(wa>=WA_COUNT):
         self.__expireCode(email)
         
 

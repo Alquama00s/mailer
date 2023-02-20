@@ -1,0 +1,564 @@
+[2023-02-20 21:02:23 +0530] [472517] [DEBUG] Current configuration:
+  config: configs/gunicorn/dev.py
+  wsgi_app: mailer.wsgi:application
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 2
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: True
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /mnt/InActive/activeProjects/mailer
+  daemon: False
+  raw_env: []
+  pidfile: configs/gunicorn/dev.pid
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: configs/gunicorn/dev.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: configs/gunicorn/dev.log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f06048ae200>
+  on_reload: <function OnReload.on_reload at 0x7f06048ae320>
+  when_ready: <function WhenReady.when_ready at 0x7f06048ae440>
+  pre_fork: <function Prefork.pre_fork at 0x7f06048ae560>
+  post_fork: <function Postfork.post_fork at 0x7f06048ae680>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f06048ae7a0>
+  worker_int: <function WorkerInt.worker_int at 0x7f06048ae8c0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f06048ae9e0>
+  pre_exec: <function PreExec.pre_exec at 0x7f06048aeb00>
+  pre_request: <function PreRequest.pre_request at 0x7f06048aec20>
+  post_request: <function PostRequest.post_request at 0x7f06048aecb0>
+  child_exit: <function ChildExit.child_exit at 0x7f06048aedd0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f06048aeef0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f06048af010>
+  on_exit: <function OnExit.on_exit at 0x7f06048af130>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-02-20 21:02:23 +0530] [472517] [INFO] Starting gunicorn 20.1.0
+[2023-02-20 21:02:23 +0530] [472517] [DEBUG] Arbiter booted
+[2023-02-20 21:02:23 +0530] [472517] [INFO] Listening at: http://0.0.0.0:8000 (472517)
+[2023-02-20 21:02:23 +0530] [472517] [INFO] Using worker: sync
+[2023-02-20 21:02:23 +0530] [472518] [INFO] Booting worker with pid: 472518
+[2023-02-20 21:02:23 +0530] [472519] [INFO] Booting worker with pid: 472519
+PROD SERVER
+[2023-02-20 21:02:23 +0530] [472517] [DEBUG] 2 workers
+PROD SERVER
+[2023-02-20 15:32:23 +0000] [472518] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/mnt/InActive/activeProjects/mailer/mailer/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/django/apps/registry.py", line 91, in populate
+    app_config = AppConfig.create(entry)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/django/apps/config.py", line 193, in create
+    import_module(entry)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/mnt/InActive/activeProjects/mailer/api/__init__.py", line 1, in <module>
+    from redis_server import redis
+  File "/mnt/InActive/activeProjects/mailer/redis_server/redis.py", line 7, in <module>
+    from constants.variables import REDIS_SERVER,REDIS_PORT,OTP_TIMEOUT,WA_COUNT
+  File "/mnt/InActive/activeProjects/mailer/constants/variables.py", line 7, in <module>
+    SMTP_HOST=int(os.environ["SMTP_HOST"])
+ValueError: invalid literal for int() with base 10: 'smtp.office365.com'
+[2023-02-20 15:32:23 +0000] [472518] [INFO] Worker exiting (pid: 472518)
+[2023-02-20 15:32:24 +0000] [472519] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/mnt/InActive/activeProjects/mailer/mailer/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/django/apps/registry.py", line 91, in populate
+    app_config = AppConfig.create(entry)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/django/apps/config.py", line 193, in create
+    import_module(entry)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/mnt/InActive/activeProjects/mailer/api/__init__.py", line 1, in <module>
+    from redis_server import redis
+  File "/mnt/InActive/activeProjects/mailer/redis_server/redis.py", line 7, in <module>
+    from constants.variables import REDIS_SERVER,REDIS_PORT,OTP_TIMEOUT,WA_COUNT
+  File "/mnt/InActive/activeProjects/mailer/constants/variables.py", line 7, in <module>
+    SMTP_HOST=int(os.environ["SMTP_HOST"])
+ValueError: invalid literal for int() with base 10: 'smtp.office365.com'
+[2023-02-20 15:32:24 +0000] [472519] [INFO] Worker exiting (pid: 472519)
+[2023-02-20 21:02:24 +0530] [472517] [WARNING] Worker with pid 472519 was terminated due to signal 15
+[2023-02-20 21:02:24 +0530] [472517] [INFO] Shutting down: Master
+[2023-02-20 21:02:24 +0530] [472517] [INFO] Reason: Worker failed to boot.
+[2023-02-20 21:05:03 +0530] [478289] [DEBUG] Current configuration:
+  config: configs/gunicorn/dev.py
+  wsgi_app: mailer.wsgi:application
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 2
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: True
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /mnt/InActive/activeProjects/mailer
+  daemon: False
+  raw_env: []
+  pidfile: configs/gunicorn/dev.pid
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: configs/gunicorn/dev.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: configs/gunicorn/dev.log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f09b981e200>
+  on_reload: <function OnReload.on_reload at 0x7f09b981e320>
+  when_ready: <function WhenReady.when_ready at 0x7f09b981e440>
+  pre_fork: <function Prefork.pre_fork at 0x7f09b981e560>
+  post_fork: <function Postfork.post_fork at 0x7f09b981e680>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f09b981e7a0>
+  worker_int: <function WorkerInt.worker_int at 0x7f09b981e8c0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f09b981e9e0>
+  pre_exec: <function PreExec.pre_exec at 0x7f09b981eb00>
+  pre_request: <function PreRequest.pre_request at 0x7f09b981ec20>
+  post_request: <function PostRequest.post_request at 0x7f09b981ecb0>
+  child_exit: <function ChildExit.child_exit at 0x7f09b981edd0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f09b981eef0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f09b981f010>
+  on_exit: <function OnExit.on_exit at 0x7f09b981f130>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-02-20 21:05:03 +0530] [478289] [INFO] Starting gunicorn 20.1.0
+[2023-02-20 21:05:03 +0530] [478289] [DEBUG] Arbiter booted
+[2023-02-20 21:05:03 +0530] [478289] [INFO] Listening at: http://0.0.0.0:8000 (478289)
+[2023-02-20 21:05:03 +0530] [478289] [INFO] Using worker: sync
+[2023-02-20 21:05:03 +0530] [478290] [INFO] Booting worker with pid: 478290
+[2023-02-20 21:05:03 +0530] [478291] [INFO] Booting worker with pid: 478291
+[2023-02-20 21:05:04 +0530] [478289] [DEBUG] 2 workers
+PROD SERVER
+PROD SERVER
+[2023-02-20 15:35:15 +0000] [478291] [DEBUG] POST /api/requestcode
+127.0.0.1 - - [20/Feb/2023:15:35:15 +0000] "POST /api/requestcode HTTP/1.1" 400 46 "-" "insomnia/2022.7.5"
+[2023-02-20 15:35:18 +0000] [478291] [DEBUG] GET /api/status
+127.0.0.1 - - [20/Feb/2023:15:35:18 +0000] "GET /api/status HTTP/1.1" 200 135 "-" "insomnia/2022.7.5"
+[2023-02-20 21:05:26 +0530] [478289] [INFO] Handling signal: int
+[2023-02-20 15:35:26 +0000] [478291] [INFO] Worker exiting (pid: 478291)
+[2023-02-20 15:35:26 +0000] [478290] [INFO] Worker exiting (pid: 478290)
+Exception ignored in: <module 'threading' from '/usr/lib/python3.10/threading.py'>
+Exception ignored in: <module 'threading' from '/usr/lib/python3.10/threading.py'>
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1567, in _shutdown
+  File "/usr/lib/python3.10/threading.py", line 1567, in _shutdown
+    lock.acquire()
+    lock.acquire()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 198, in handle_quit
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 198, in handle_quit
+    sys.exit(0)
+SystemExit: 0
+    sys.exit(0)
+SystemExit: 0
+[2023-02-20 21:05:26 +0530] [478289] [WARNING] Worker with pid 478290 was terminated due to signal 2
+[2023-02-20 21:05:26 +0530] [478289] [WARNING] Worker with pid 478291 was terminated due to signal 2
+[2023-02-20 21:05:26 +0530] [478289] [INFO] Shutting down: Master
+[2023-02-20 21:05:54 +0530] [480246] [DEBUG] Current configuration:
+  config: configs/gunicorn/dev.py
+  wsgi_app: mailer.wsgi:application
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 2
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: True
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /mnt/InActive/activeProjects/mailer
+  daemon: False
+  raw_env: []
+  pidfile: configs/gunicorn/dev.pid
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: configs/gunicorn/dev.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: configs/gunicorn/dev.log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fb62e41e200>
+  on_reload: <function OnReload.on_reload at 0x7fb62e41e320>
+  when_ready: <function WhenReady.when_ready at 0x7fb62e41e440>
+  pre_fork: <function Prefork.pre_fork at 0x7fb62e41e560>
+  post_fork: <function Postfork.post_fork at 0x7fb62e41e680>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fb62e41e7a0>
+  worker_int: <function WorkerInt.worker_int at 0x7fb62e41e8c0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fb62e41e9e0>
+  pre_exec: <function PreExec.pre_exec at 0x7fb62e41eb00>
+  pre_request: <function PreRequest.pre_request at 0x7fb62e41ec20>
+  post_request: <function PostRequest.post_request at 0x7fb62e41ecb0>
+  child_exit: <function ChildExit.child_exit at 0x7fb62e41edd0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fb62e41eef0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fb62e41f010>
+  on_exit: <function OnExit.on_exit at 0x7fb62e41f130>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-02-20 21:05:54 +0530] [480246] [INFO] Starting gunicorn 20.1.0
+[2023-02-20 21:05:54 +0530] [480246] [DEBUG] Arbiter booted
+[2023-02-20 21:05:54 +0530] [480246] [INFO] Listening at: http://0.0.0.0:8000 (480246)
+[2023-02-20 21:05:54 +0530] [480246] [INFO] Using worker: sync
+[2023-02-20 21:05:54 +0530] [480247] [INFO] Booting worker with pid: 480247
+[2023-02-20 21:05:54 +0530] [480248] [INFO] Booting worker with pid: 480248
+PROD SERVER
+[2023-02-20 21:05:54 +0530] [480246] [DEBUG] 2 workers
+PROD SERVER
+[2023-02-20 15:36:04 +0000] [480248] [DEBUG] GET /api/status
+127.0.0.1 - - [20/Feb/2023:15:36:04 +0000] "GET /api/status HTTP/1.1" 200 135 "-" "insomnia/2022.7.5"
+[2023-02-20 15:36:16 +0000] [480247] [DEBUG] POST /api/requestcode
+127.0.0.1 - - [20/Feb/2023:15:36:16 +0000] "POST /api/requestcode HTTP/1.1" 200 59 "-" "insomnia/2022.7.5"
+[Errno 2] No such file or directory: '/mnt/InActive/activeProjects/mailer/custom/style.css'
+Server error cannot send mail : section main
+[2023-02-20 15:37:31 +0000] [480248] [INFO] Worker reloading: /mnt/InActive/activeProjects/mailer/email_client/send.py modified
+[2023-02-20 15:37:31 +0000] [480248] [INFO] Worker exiting (pid: 480248)
+[2023-02-20 15:37:32 +0000] [480247] [INFO] Worker reloading: /mnt/InActive/activeProjects/mailer/email_client/send.py modified
+[2023-02-20 15:37:32 +0000] [480247] [INFO] Worker exiting (pid: 480247)
+[2023-02-20 21:07:49 +0530] [480246] [INFO] Handling signal: int
+Exception ignored in: <module 'threading' from '/usr/lib/python3.10/threading.py'>
+Exception ignored in: <module 'threading' from '/usr/lib/python3.10/threading.py'>
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1567, in _shutdown
+  File "/usr/lib/python3.10/threading.py", line 1567, in _shutdown
+    lock.acquire()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 197, in handle_quit
+    lock.acquire()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 197, in handle_quit
+    time.sleep(0.1)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 198, in handle_quit
+    time.sleep(0.1)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 198, in handle_quit
+    sys.exit(0)
+SystemExit: 0
+    sys.exit(0)
+SystemExit: 0
+[2023-02-20 21:07:49 +0530] [480246] [WARNING] Worker with pid 480247 was terminated due to signal 2
+[2023-02-20 21:07:49 +0530] [480246] [WARNING] Worker with pid 480248 was terminated due to signal 2
+[2023-02-20 21:07:49 +0530] [480246] [INFO] Shutting down: Master
+[2023-02-20 21:07:56 +0530] [484455] [DEBUG] Current configuration:
+  config: configs/gunicorn/dev.py
+  wsgi_app: mailer.wsgi:application
+  bind: ['0.0.0.0:8000']
+  backlog: 2048
+  workers: 2
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: True
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /mnt/InActive/activeProjects/mailer
+  daemon: False
+  raw_env: []
+  pidfile: configs/gunicorn/dev.pid
+  worker_tmp_dir: None
+  user: 1000
+  group: 1000
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: configs/gunicorn/dev.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: configs/gunicorn/dev.log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: gunicorn
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f2f88c1e200>
+  on_reload: <function OnReload.on_reload at 0x7f2f88c1e320>
+  when_ready: <function WhenReady.when_ready at 0x7f2f88c1e440>
+  pre_fork: <function Prefork.pre_fork at 0x7f2f88c1e560>
+  post_fork: <function Postfork.post_fork at 0x7f2f88c1e680>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f2f88c1e7a0>
+  worker_int: <function WorkerInt.worker_int at 0x7f2f88c1e8c0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f2f88c1e9e0>
+  pre_exec: <function PreExec.pre_exec at 0x7f2f88c1eb00>
+  pre_request: <function PreRequest.pre_request at 0x7f2f88c1ec20>
+  post_request: <function PostRequest.post_request at 0x7f2f88c1ecb0>
+  child_exit: <function ChildExit.child_exit at 0x7f2f88c1edd0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f2f88c1eef0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f2f88c1f010>
+  on_exit: <function OnExit.on_exit at 0x7f2f88c1f130>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-02-20 21:07:56 +0530] [484455] [INFO] Starting gunicorn 20.1.0
+[2023-02-20 21:07:56 +0530] [484455] [DEBUG] Arbiter booted
+[2023-02-20 21:07:56 +0530] [484455] [INFO] Listening at: http://0.0.0.0:8000 (484455)
+[2023-02-20 21:07:56 +0530] [484455] [INFO] Using worker: sync
+[2023-02-20 21:07:56 +0530] [484468] [INFO] Booting worker with pid: 484468
+PROD SERVER
+[2023-02-20 21:07:56 +0530] [484469] [INFO] Booting worker with pid: 484469
+[2023-02-20 21:07:56 +0530] [484455] [DEBUG] 2 workers
+PROD SERVER
+[2023-02-20 15:38:03 +0000] [484469] [DEBUG] GET /api/status
+127.0.0.1 - - [20/Feb/2023:15:38:03 +0000] "GET /api/status HTTP/1.1" 200 135 "-" "insomnia/2022.7.5"
+[2023-02-20 15:38:06 +0000] [484468] [DEBUG] POST /api/requestcode
+127.0.0.1 - - [20/Feb/2023:15:38:06 +0000] "POST /api/requestcode HTTP/1.1" 200 59 "-" "insomnia/2022.7.5"
+PYTHON SERVER :: success sent mail
+[2023-02-20 21:08:36 +0530] [484455] [INFO] Handling signal: int
+[2023-02-20 15:38:36 +0000] [484468] [INFO] Worker exiting (pid: 484468)
+[2023-02-20 15:38:36 +0000] [484469] [INFO] Worker exiting (pid: 484469)
+Exception ignored in: <module 'threading' from '/usr/lib/python3.10/threading.py'>
+Exception ignored in: <module 'threading' from '/usr/lib/python3.10/threading.py'>
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1567, in _shutdown
+  File "/usr/lib/python3.10/threading.py", line 1567, in _shutdown
+    lock.acquire()
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 198, in handle_quit
+    lock.acquire()
+    sys.exit(0)
+  File "/mnt/InActive/activeProjects/mailer/.venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 198, in handle_quit
+SystemExit: 0
+    sys.exit(0)
+SystemExit: 0
+[2023-02-20 21:08:36 +0530] [484455] [WARNING] Worker with pid 484468 was terminated due to signal 2
+[2023-02-20 21:08:36 +0530] [484455] [WARNING] Worker with pid 484469 was terminated due to signal 2
+[2023-02-20 21:08:36 +0530] [484455] [INFO] Shutting down: Master

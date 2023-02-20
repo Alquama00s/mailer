@@ -2,6 +2,7 @@ from redis_server import redis
 import threading
 from time import time
 from email_client import email_client
+
 class sender:
   discard_count=0;
   send_event=threading.Event()
