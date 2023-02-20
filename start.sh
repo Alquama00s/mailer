@@ -12,6 +12,7 @@ list=(
 "REDIS_SERVER"
 "REDIS_PORT"
 "SERVER_MODE"
+"SERVER_SECRET_KEY"
 )
 
 for i in "${list[@]}"
@@ -22,5 +23,5 @@ if [[ -z "${!i}" ]]; then
 fi
 done
 
-
+redis-server &
 gunicorn -c configs/gunicorn/dev.py
