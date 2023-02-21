@@ -9,7 +9,7 @@ class Email:
     otp=self.redis_client.setCode(to)
     # print(otp)
     # sleep(20)
-    send.send_mail(client='dart',to='alquamasalim000@gmail.com',otp=otp)
+    send.send_mail(client='dart',to=to,otp=otp)
     # print(otp)
     # print("set")
 
